@@ -1,6 +1,6 @@
 package org.seagatesoft.math;
 
-public class PolynomialFunction extends AbstractUnivariateFunction
+public class PolynomialFunction implements UnivariateFunction
 {
 	private double[] coefficients;
 	

@@ -2,6 +2,8 @@ package org.seagatesoft.math;
 
 public class EIRCalculator
 {
+	private UnivariateSolver univariateSolver = new NewtonUnivariateSolver();
+
 	public double calculateEIR(double presentValue, double[] cashFlow)
 	{
 		// transform presentValue and cashFlow to polynomial function coefficients
@@ -15,7 +17,7 @@ public class EIRCalculator
 
 		// get zero of the function (its root)
 		UnivariateFunction polynomialFunction = new PolynomialFunction(coefficients);
-		double root = polynomialFunction.getRoot(new NewtonUnivariateSolver());	
+		double root = univariateSolver.calculateRoot(polynomialFunction);	
 		
 		return ( root - 1.00 );
 	}
